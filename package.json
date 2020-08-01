@@ -1,0 +1,23 @@
+{
+  "name": "enjo-ds",
+  "version": "0.0.1",
+  "description": "Discord Bot for the CS++ 7 Discord Server",
+  "main": "src/enjo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kovuko/enjo-ds.git"
+  },
+  "author": "kovuko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kovuko/enjo-ds/issues"
+  },
+  "homepage": "https://github.com/kovuko/enjo-ds#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "discord.js": "^12.2.0"
+  }
+}
