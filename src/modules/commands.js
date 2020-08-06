@@ -9,7 +9,7 @@ CommandHandler.entry = (message) => {
     let cmd = message.content.slice(prefix.length).split(" ");
     switch(cmd[0]) {
         case 'uptime':
-            message.channel.send(`I've been alive for ${enjo.uptime / 1000} seconds`);
+            message.channel.send(`I've been alive for ${Math.round(enjo.uptime / 1000)} seconds`);
             break;
     }
 }
