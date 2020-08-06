@@ -1,3 +1,4 @@
+const Discord = require('discord.js');
 const {enjo} = require('../enjo');
 const prefix = require('../json/config.json').prefix;
 

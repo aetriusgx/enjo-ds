@@ -1,3 +1,4 @@
+const Discord = require('discord.js');
 const {enjo} = require('../enjo.js');
 const colors = require('colors');
 
