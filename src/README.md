@@ -33,7 +33,7 @@ If you want a module to be connected to a handler event, simply do the following
 ```
 </br>
 
-## Accessing the Client
+## Getting code to work
 Creating code for the bot won't work right away unless you include the following
 ```js
     const {enjo} = require('../enjo');
@@ -42,3 +42,12 @@ And if necessary, include the discord library
 ```js
     const Discord = require('discord.js');
 ```
+
+### Module code
+Modules should have their own objects so that another module may access them in the future. It is also necessary for the handlers to access your module. </br>
+It is a good idea to have an entry function that will send the event data into your module. This is seen in the [commands module](https://github.com/kovuko/enjo-ds/blob/master/src/modules/commands.js) </br>
+Another good idea would be to include parameter declarations so that your editor can know what exactly the parameter typings are. You can do so as I did in the commands file shown above:
+```js
+/***@param {Discord.Message} message Explanation Here */
+```
+Now the editor knows that the message parameter in CommandHandler.entry is supposed to be a Discord message and because of that, the editor now shows me the properties and methods a Discord.Message object has.
