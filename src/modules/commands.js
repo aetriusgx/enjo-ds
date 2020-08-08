@@ -18,6 +18,9 @@ CommandHandler.entry = (message) => {
             let {Command} = require('./custom_commands'); //Get the Command class from the custom commands module
             new Command(cmd[1], output_text); //Create a new command with the second command parameter as the input name and everything else afterwards to be the output
             break;
+        case 'edit':
+            
+            break;
     }
 }
 
