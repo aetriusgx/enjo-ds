@@ -19,8 +19,21 @@ CommandHandler.entry = (message) => {
             new Command(cmd[1], output_text); //Create a new command with the second command parameter as the input name and everything else afterwards to be the output
             break;
         case 'edit':
-            
+            let current_command = cmd; //Make a new command based off the cmd array (duplicate it so we don't modify the actual array)
+            current_command.shift(); current_command.shift(); //Get rid of the command name and custom command input
+            let output_text = current_command.join(" "); //Turn the array back into a string separated by spaces
+            let {Command} = require('./custom_commands'); //Get the Command class from the custom commands module
+            Command.edit(cmd[1], output_text);
             break;
+        case 'erase':
+            let current_command = cmd; //Make a new command based off the cmd array (duplicate it so we don't modify the actual array)
+            current_command.shift(); current_command.shift(); //Get rid of the command name and custom command input
+            let output_text = current_command.join(" "); //Turn the array back into a string separated by spaces
+            let {Command} = require('./custom_commands'); //Get the Command class from the custom commands module
+            Command.remove(cmd[1]);
+            break;
+        default:
+            
     }
 }
 

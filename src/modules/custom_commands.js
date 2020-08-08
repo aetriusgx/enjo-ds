@@ -28,6 +28,9 @@ class Command {
     }
     static Commands = [];
 
+    /**@returns {Command} 
+     * @param {String}
+    */
     static obtain (name) {
         fs.readFile(saved_commands, (err, data) => {
             if (err) console.error(err);
@@ -41,10 +44,10 @@ class Command {
             }
         });
     }
-
+    
     static edit (input_name, new_output) {
-        let command = this.obtain(input_name);
-        if(command) {
+        let cmd = this.obtain(input_name);
+        if(cmd) {
             fs.readFile(saved_commands, (err, data) => {
                 if(err) console.err(err);
                 else {
@@ -55,18 +58,42 @@ class Command {
                             let new_append = JSON.stringify(this.Commands);
                             fs.writeFileSync(saved_commands, new_append);
                             console.log(`${command.input} has a new output: '${new_output}'`);
+                        } else {
+                            throw new Error('Command failed to fetch')
                         }
                     }
                 }
             });
         } else {
-            console.log('failed to retrieve command');
             return;
         }
     }
 
-    static removeCommand (command_input) {
-        let command = this.obtain(command_input);
+    static remove (command_input) {
+        let cmd = this.obtain(command_input);
+        if(cmd) {
+            fs.readFile(saved_commands, (err, data) => {
+                if(err) console.error(err);
+                else {
+                    this.Commands = data;
+                    for(let command of this.Commands) {
+                        if(command.input == command_input) {
+                            this.Commands.slice(command.index);
+                            let appended = JSON.stringify(this.Commands);
+                            fs.writeFileSync(saved_commands, appended);
+                            console.log(`Removed ${command.input}`);
+                        } else {
+                            throw new Error('Command failed to fetch')
+                        }
+                    }
+                }
+            });
+        } else {
+            return;
+        }
+    }
+
+    static run (input_name) {
         
     }
 }
