@@ -94,7 +94,16 @@ class Command {
     }
 
     static run (input_name) {
-        
+        fs.readFile(saved_commands, (err, data) => {
+            if(err) console.error(err);
+            else {
+                this.Commands = JSON.parse(data);
+                for(let command of this.Commands) {
+                    if(command.input == input_name) return command.output;
+                    else return 'No such command found';
+                }
+            }
+        });
     }
 }
 

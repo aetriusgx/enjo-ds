@@ -33,7 +33,7 @@ CommandHandler.entry = (message) => {
             Command.remove(cmd[1]);
             break;
         default:
-            
+            message.channel.send(require('./custom_commands').Command.run(cmd[0]));
     }
 }
 
