@@ -1,2 +1,4 @@
 src/json/token.json
+src/json/role_messages.json
+src/json/guild-info
 node_modules/*
