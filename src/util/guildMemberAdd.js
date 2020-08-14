@@ -1,10 +1,5 @@
-const {
-    enjo
-} = require('../enjo');
-const {
-    GuildTraffic
-} = require('../modules/joins');
+const { enjo }= require('../enjo');
 
 enjo.on('guildMemberAdd', member => {
-    GuildTraffic.memberJoin(member);
+    require('../modules/joins').GuildTraffic.memberJoin(member);
 });
