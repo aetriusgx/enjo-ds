@@ -1,3 +1,7 @@
 {
-    "prefix": "~"
+    "prefix": "~",
+    "xp": {
+        "bots": false,
+        "multiplier": 1
+    }
 }
